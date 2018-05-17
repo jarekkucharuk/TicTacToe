@@ -26,7 +26,7 @@ public class Play {
             }
             count++;
         }
-        while (!isGameOver(gamePad.getGamePad()));
+        while (!isGameOver(gamePad.getGamePad(),player1,player2));
     }
 
     public void playerChoise() {
@@ -46,15 +46,10 @@ public class Play {
         }
     }
 
-    public boolean isGameOver(String[] gamePad) {
-        if (((gamePad[0].equals(gamePad[1])) && (gamePad[1].equals(gamePad[2]))) ||
-                ((gamePad[3].equals(gamePad[4])) && (gamePad[4].equals(gamePad[5]))) ||
-                ((gamePad[6].equals(gamePad[7])) && (gamePad[7].equals(gamePad[8]))) ||
-                ((gamePad[0].equals(gamePad[3])) && (gamePad[3].equals(gamePad[6]))) ||
-                ((gamePad[1].equals(gamePad[4])) && (gamePad[4].equals(gamePad[7]))) ||
-                ((gamePad[2].equals(gamePad[5])) && (gamePad[5].equals(gamePad[8]))) ||
-                ((gamePad[0].equals(gamePad[4])) && (gamePad[4].equals(gamePad[8]))) ||
-                ((gamePad[2].equals(gamePad[4])) && (gamePad[4].equals(gamePad[6])))) {
+    public boolean isGameOver(String[] gamePad, String player1, String player2) {
+
+        if (whoWon(gamePad,player1,player2).equals(player1)||
+                whoWon(gamePad,player1,player2).equals(player2)) {
             return true;
         } else
             for (int i = 0; i < 9; i++) {
@@ -63,5 +58,58 @@ public class Play {
                 }
             }
         return true;
+    }
+
+    public String whoWon (String[] gamePad, String player1, String player2 ){
+
+        if (((gamePad[0].equals(gamePad[1])) && (gamePad[1].equals(gamePad[2]))) && (gamePad[1].equals("o"))) {
+            return player1;
+        }
+        else if (((gamePad[0].equals(gamePad[1])) && (gamePad[1].equals(gamePad[2]))) && (gamePad[1].equals("x"))) {
+            return player2;
+        }
+        else if (((gamePad[3].equals(gamePad[4])) && (gamePad[4].equals(gamePad[5]))) && (gamePad[4].equals("o"))){
+            return player1;
+        }
+        else if (((gamePad[3].equals(gamePad[4])) && (gamePad[4].equals(gamePad[5]))) && (gamePad[4].equals("x"))){
+            return player2;
+        }
+        else if (((gamePad[6].equals(gamePad[7])) && (gamePad[7].equals(gamePad[8]))) && (gamePad[7].equals("o"))){
+            return player1;
+        }
+        else if (((gamePad[6].equals(gamePad[7])) && (gamePad[7].equals(gamePad[8]))) && (gamePad[7].equals("x"))){
+            return player2;
+        }
+        else if (((gamePad[0].equals(gamePad[3])) && (gamePad[3].equals(gamePad[6]))) && (gamePad[3].equals("o"))){
+            return player1;
+        }
+        else if (((gamePad[0].equals(gamePad[3])) && (gamePad[3].equals(gamePad[6]))) && (gamePad[3].equals("x"))){
+            return player2;
+        }
+        else if (((gamePad[1].equals(gamePad[4])) && (gamePad[4].equals(gamePad[7]))) && (gamePad[4].equals("o"))){
+            return player1;
+        }
+        else if (((gamePad[1].equals(gamePad[4])) && (gamePad[4].equals(gamePad[7]))) && (gamePad[4].equals("x"))){
+            return player2;
+        }
+        else if (((gamePad[2].equals(gamePad[5])) && (gamePad[5].equals(gamePad[8]))) && (gamePad[5].equals("o"))){
+            return player1;
+        }
+        else if (((gamePad[2].equals(gamePad[5])) && (gamePad[5].equals(gamePad[8]))) && (gamePad[5].equals("x"))){
+            return player2;
+        }
+        else if (((gamePad[0].equals(gamePad[4])) && (gamePad[4].equals(gamePad[8]))) && (gamePad[4].equals("o"))){
+            return player1;
+        }
+        else if (((gamePad[0].equals(gamePad[4])) && (gamePad[4].equals(gamePad[8]))) && (gamePad[4].equals("x"))){
+            return player2;
+        }
+        else if (((gamePad[2].equals(gamePad[4])) && (gamePad[4].equals(gamePad[6]))) && (gamePad[4].equals("o"))){
+            return player1;
+        }
+        else if (((gamePad[2].equals(gamePad[4])) && (gamePad[4].equals(gamePad[6]))) && (gamePad[4].equals("x"))){
+            return player2;
+        }
+        else return " ";
     }
 }
