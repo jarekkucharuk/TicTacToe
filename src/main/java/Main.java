@@ -6,10 +6,12 @@ public class Main {
 
         Menu menu = new Menu();
         GamePad gamePad = new GamePad();
+        Play play = new Play();
 
-//        menu.menuDisplay();
-//        menu.menuChoise();
-        gamePad.printGamePad();
+        menu.menuDisplay();
+        menu.menuChoise();
+        //play.readPlayers();
+        //play.game();
 
 
     }

@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Menu {
 
+    Scanner scanner = new Scanner(System.in);
     Play play = new Play();
 
     public void menuDisplay() {
@@ -14,12 +15,12 @@ public class Menu {
     }
 
     public void menuChoise() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println();
         System.out.println("Podaj swój wybór: ");
         String choise = scanner.nextLine();
         switch (choise) {
             case "1":
+                play.readPlayers();
                 play.game();
                 break;
             /*case "2": showResults();
