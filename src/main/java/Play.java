@@ -20,9 +20,9 @@ public class Play {
         playerChoise();
         do {
             if (count % 2 == 0) {
-                gamePad.playerMove(choise, "o");
+                gamePad.playerMove(gamePad.getGamePad(),choise, "o");
             } else {
-                gamePad.playerMove(choise, "x");
+                gamePad.playerMove(gamePad.getGamePad(),choise, "x");
             }
             count++;
         }
@@ -31,17 +31,17 @@ public class Play {
 
     public void playerChoise() {
 
-        while (true) {
+        while (!isGameOver(gamePad.getGamePad(),player1,player2)) {
 
             System.out.println();
             if ((double) (count / 2) == (double) count / 2) {
                 System.out.println(player1 + " podaj pole: ");
                 choise = scanner.nextLine();
-                gamePad.playerMove(choise, "o");
+                gamePad.playerMove(gamePad.getGamePad(),choise, "o");
             } else {
                 System.out.println(player2 + " podaj pole: ");
                 choise = scanner.nextLine();
-                gamePad.playerMove(choise, "x");
+                gamePad.playerMove(gamePad.getGamePad(),choise, "x");
             }
         }
     }

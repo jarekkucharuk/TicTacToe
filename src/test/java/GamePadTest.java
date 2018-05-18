@@ -15,9 +15,9 @@ public class GamePadTest {
     @Test
     public void playerMove() throws Exception {
 
-        gamePad.playerMove("a2", "o");
-        Assert.assertEquals("o", gamePad.getGamePad()[1]);
-        gamePad.playerMove("c2", "x");
-        Assert.assertEquals("x", gamePad.getGamePad()[7]);
+        gamePad.playerMove(pad, "b2", "o");
+        Assert.assertEquals("o", pad[4]);
+        gamePad.playerMove(pad, "c3", "x");
+        Assert.assertEquals("x", pad[8]);
     }
 }
