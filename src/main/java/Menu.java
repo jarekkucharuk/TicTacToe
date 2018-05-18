@@ -33,7 +33,6 @@ public class Menu {
                 break;
             default:
                 System.out.println("Nierozpoznany wybór");
-                break;
         }
     }
 

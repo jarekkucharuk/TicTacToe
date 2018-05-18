@@ -52,36 +52,8 @@ public class GamePad {
 
     public void playerMove(String[] gamePad, String selectedField, String sign) {
 
-        switch (selectedField) {
-            case "a1":
-                gamePad[0] = sign;
-                break;
-            case "a2":
-                gamePad[1] = sign;
-                break;
-            case "a3":
-                gamePad[2] = sign;
-                break;
-            case "b1":
-                gamePad[3] = sign;
-                break;
-            case "b2":
-                gamePad[4] = sign;
-                break;
-            case "b3":
-                gamePad[5] = sign;
-                break;
-            case "c1":
-                gamePad[6] = sign;
-                break;
-            case "c2":
-                gamePad[7] = sign;
-                break;
-            case "c3":
-                gamePad[8] = sign;
-                break;
-            default:
-                System.out.println("Nieznane pole");
+        if (isFieldCorrect(gamePad, selectedField)) {
+            gamePad[fieldNumber(selectedField)] = sign;
         }
     }
 
@@ -90,7 +62,8 @@ public class GamePad {
         if ((fieldNumber(selectedField) >= 0 && fieldNumber(selectedField) < 10) &&
                 gamePad[fieldNumber(selectedField)].equals(" ")) {
             return true;
-        } else return false;
+        } else
+            return false;
     }
 }
 

@@ -27,14 +27,19 @@ public class Play {
         do {
             gamePad.printGamePad();
             playerChoise(player1, player2);
-            gamePad.playerMove(gamePad.getGamePad(), player1, player2);
 
+            if(gamePad.isFieldCorrect(gamePad.getGamePad(), choise)){
             if (count % 2 == 0) {
                 gamePad.playerMove(gamePad.getGamePad(), choise, "o");
             } else {
                 gamePad.playerMove(gamePad.getGamePad(), choise, "x");
             }
             count++;
+            }
+            else {
+                System.out.println("Niedozwolony ruch");
+            }
+
         }
         while (!isGameOver(gamePad.getGamePad(), player1, player2));
         if (whoWon(gamePad.getGamePad(), player1, player2).equals(player1) ||
