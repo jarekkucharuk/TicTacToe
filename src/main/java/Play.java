@@ -49,6 +49,7 @@ public class Play {
             System.out.println("Koniec gry. Wygrywa: " +
                     whoWon(gamePad.getGamePad(), player1, player2) + ". Gratulacje !");
         } else {
+            gamePad.printGamePad();
             System.out.println();
             System.out.println("Koniec gry. Nie ma zwycięzcy.");
         }
